@@ -6,7 +6,7 @@
   const fetchBookmarks = () => {
     return new Promise((resolve) => {
       chrome.storage.sync.get([currentVideo], (obj) => {
-        resolve(obj[currentVideo] ? JSON.parse(obj[currentVideo]) : []);
+        resolve(obj[currentVideo] ? JSON.parse(obj[currentVideo]) : []); //! to check if the current video id has any bookmark data or not to return data or blank.
       });
     });
   };

@@ -4,7 +4,10 @@ const addNewBookmark = (bookmarks, bookmark) => {
   const bookmarkTitleElement = document.createElement("div");
   const controlsElement = document.createElement("div");
   const newBookmarkElement = document.createElement("div");
+  const bookmarkTitle=document.createElement("div");
 
+
+  bookmarkTitle.textContent="this is shit";
   bookmarkTitleElement.textContent = bookmark.desc;
   bookmarkTitleElement.className = "bookmark-title";
   controlsElement.className = "bookmark-controls";
@@ -17,6 +20,7 @@ const addNewBookmark = (bookmarks, bookmark) => {
   newBookmarkElement.setAttribute("timestamp", bookmark.time);
 
   newBookmarkElement.appendChild(bookmarkTitleElement);
+  newBookmarkElement.appendChild(bookmarkTitle);
   newBookmarkElement.appendChild(controlsElement);
   bookmarks.appendChild(newBookmarkElement);
 };
@@ -44,6 +48,7 @@ const onPlay = async e => {
   chrome.tabs.sendMessage(activeTab.id, {
     type: "PLAY",
     value: bookmarkTime,
+  
   });
 };
 
